@@ -1,24 +1,77 @@
-# 🩸 Blood Donation Management System
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donation System - Screenshots</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+      margin: 0;
+      padding: 20px;
+    }
 
-A web-based platform designed to manage blood donations, donor registrations, and blood requests efficiently. Built using Node.js, Express.js, EJS templating, and PostgreSQL for database management.
+    h1 {
+      text-align: center;
+      color: #c53030;
+      margin-bottom: 30px;
+    }
 
-## 🚀 Features
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-- ✅ User registration and login with session-based authentication
-- 📋 Donor profile management
-- 🧾 Blood request posting and tracking
-- 🔎 Search donors by blood group and location
-- 📊 Admin panel to manage users and requests
-- 🗃️ PostgreSQL database integration
-- 🎨 Clean and responsive UI using Tailwind CSS
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #e53e3e;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
 
-## 🛠️ Tech Stack
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
 
-- **Frontend**: EJS, HTML5, CSS3, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **Database**: PostgreSQL
-- **Authentication**: Express-Session
-- **Deployment**: Railway / Render / Localhost
+    .caption {
+      text-align: center;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
 
-## 🗂️ Project Structure
+  <h1>🩸 Blood Donation System Screenshots</h1>
 
+  <div class="gallery">
+    <div>
+      <img src="https://i.postimg.cc/yWMTZd9v/p3.png" alt="Login Page">
+      <div class="caption">Login Page</div>
+    </div>
+    <div>
+      <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" alt="Blood Request Form">
+      <div class="caption">Blood Request Form</div>
+    </div>
+    <div>
+      <img src="https://i.postimg.cc/mt7yNsyR/p5.png" alt="Profile Page">
+      <div class="caption">Profile Page</div>
+    </div>
+    <div>
+      <img src="https://i.postimg.cc/v4ML0N0n/p6.png" alt="Donor List">
+      <div class="caption">Donor List</div>
+    </div>
+    <div>
+      <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard">
+      <div class="caption">Dashboard</div>
+    </div>
+  </div>
+
+</body>
+</html>
