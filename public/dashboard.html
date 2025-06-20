@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodCare | Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrollbars */
+            background-color: #f9fafb; /* Light gray background */
+
+      
+        }
+        header {
+            background-color: #f83e3e; /* Green accent */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            height: 10%; /* Dynamic height based on viewport */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        .h-screen {
+            display: flex;
+            height: 90%; /* Remaining height for the content */
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px, rgba(0, 0, 0, 0.06) 0px 1px 2px;
+            width: 14rem;
+            height: 100%; /* Full height of the container */
+        }
+        .menu button, .menu a {
+            display: block;
+            color: rgb(2, 2, 2);
+            border: none;
+            padding: 12px 20px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+   
+        .flex-1 {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background-color: #f9fafb;
+            margin-left: 20%;
+        }
+        .hero img {
+            height: auto;
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="lg-text">
+            BloodCare
+        </div>
+    
+    </header>
+    <div class="h-screen">
+        <!-- Menu pushed to the left -->
+        <div class="menu">
+            <a href="/profile">Profile</a>
+            <a href="/donate">Donate Blood</a>
+            <a href="/donors">Inventory</a>
+           <a href="/logout"><button>Logout</button></a> 
+        </div>
+        <!-- Content -->
+        <div class="flex-1">
+            <div class="hero">
+                <img src="blood.png" alt="Hero Image" width="70%">
+            </div>
+        </div>
+    </div>
+
+
+<div id="profile-container" class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6 space-y-4 mt-10">
+  <h2 class="text-2xl font-bold text-center text-red-600 mb-4">Your Profile</h2>
+</div>
+
+<script>
+  const container = document.getElementById('profile-container');
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('email');
+
+  if (email) {
+    fetch(`/profile?email=${encodeURIComponent(email)}`)
+      .then(res => res.json())
+      .then(user => {
+        container.innerHTML += `
+          <div class="flex justify-between border-b pb-2">
+            <span class="text-gray-600 font-medium">Name:</span>
+            <span class="text-gray-800">${user.name}</span>
+          </div>
+          <div class="flex justify-between border-b pb-2">
+            <span class="text-gray-600 font-medium">Email:</span>
+            <span class="text-gray-800">${user.email}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 font-medium">Phone:</span>
+            <span class="text-gray-800">${user.phone}</span>
+          </div>
+        `;
+      })
+      .catch(err => {
+        console.error('Profile fetch failed:', err);
+        container.innerHTML += `<p class="text-red-500">Failed to load profile.</p>`;
+      });
+  } else {
+    container.innerHTML += `<p class="text-red-500">No user email provided.</p>`;
+  }
+</script>
+
+
+</body>
+</html>

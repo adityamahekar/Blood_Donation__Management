@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloodCare | Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold text-red-800 text-center mb-6">Sign up for BloodCare</h2>
+    <form action="/signup" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Enter your name"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="contact">Phone Number</label>
+        <input
+          type="text"
+          id="contact"
+          name="phone"
+          required
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-red-400 text-white py-2 px-4 rounded-md">
+        Sign Up
+      </button>
+    </form>
+    <p class="mt-4 text-center text-sm text-gray-600">
+      Already have an account? <a href="/login" class="text-indigo-600 hover:underline">Log in</a>
+    </p>
+  </div>
+
+
+  
+</body>
+</html>
