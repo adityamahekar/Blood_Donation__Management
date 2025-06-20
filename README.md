@@ -1,77 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blood Donation System - Screenshots</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #c53030;
-      margin-bottom: 30px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #e53e3e;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.02);
-    }
-
-    .caption {
-      text-align: center;
-      margin-top: 5px;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Blood Donation Management System</title>
 </head>
 <body>
 
-  <h1>🩸 Blood Donation System Screenshots</h1>
+  <h1>🩸 Blood Donation Management System</h1>
 
-  <div class="gallery">
-    <div>
-      <img src="https://i.postimg.cc/yWMTZd9v/p3.png" alt="Login Page">
-      <div class="caption">Login Page</div>
-    </div>
-    <div>
-      <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" alt="Blood Request Form">
-      <div class="caption">Blood Request Form</div>
-    </div>
-    <div>
-      <img src="https://i.postimg.cc/mt7yNsyR/p5.png" alt="Profile Page">
-      <div class="caption">Profile Page</div>
-    </div>
-    <div>
-      <img src="https://i.postimg.cc/v4ML0N0n/p6.png" alt="Donor List">
-      <div class="caption">Donor List</div>
-    </div>
-    <div>
-      <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard">
-      <div class="caption">Dashboard</div>
-    </div>
-  </div>
+  <p>A full-stack web application to manage blood donors and requests efficiently. Built with <strong>Node.js</strong>, <strong>Express.js</strong>, <strong>EJS</strong>, and <strong>PostgreSQL</strong>.</p>
+
+  <hr>
+
+  <h2>🚀 Features</h2>
+  <ul>
+    <li>🧍 User registration & login (with sessions)</li>
+    <li>👤 Donor profile & details management</li>
+    <li>🩸 Blood request submission & tracking</li>
+    <li>🔍 Search donors by blood group/location</li>
+    <li>📊 Admin view for managing data</li>
+    <li>🎨 Responsive UI with Tailwind CSS</li>
+  </ul>
+
+  <hr>
+
+  <h2>🛠️ Tech Stack</h2>
+  <ul>
+    <li><strong>Frontend</strong>: HTML, EJS, Tailwind CSS</li>
+    <li><strong>Backend</strong>: Node.js, Express.js</li>
+    <li><strong>Database</strong>: PostgreSQL</li>
+    <li><strong>Session Auth</strong>: express-session</li>
+    <li><strong>Deployment</strong>: Localhost / Railway / Render</li>
+  </ul>
+
+  <hr>
+
+  <h2>⚙️ Setup</h2>
+  <pre>
+# 1. Clone repo
+git clone https://github.com/your-username/blood-donation-system.git
+cd blood-donation-system
+
+# 2. Install dependencies
+npm install
+
+# 3. Add .env file
+PORT=3000
+DB_USER=your_db_user
+DB_PASSWORD=your_db_pass
+DB_HOST=localhost
+DB_NAME=blood_donation_db
+SESSION_SECRET=your_secret
+
+# 4. Start server
+npm start
+  </pre>
+
+  <hr>
+
+  <h2>📷 Screenshots</h2>
+  <table>
+    <tr>
+      <td>
+        <h4>Login Page</h4>
+        <img src="https://i.postimg.cc/yWMTZd9v/p3.png" width="300" alt="Login Page">
+      </td>
+      <td>
+        <h4>Blood Request Form</h4>
+        <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" width="300" alt="Blood Request Form">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>Profile Page</h4>
+        <img src="https://i.postimg.cc/mt7yNsyR/p5.png" width="300" alt="Profile Page">
+      </td>
+      <td>
+        <h4>Donor List</h4>
+        <img src="https://i.postimg.cc/v4ML0N0n/p6.png" width="300" alt="Donor List">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <h4>Dashboard</h4>
+        <img src="https://i.postimg.cc/5H25VFdN/p7.png" width="300" alt="Dashboard">
+      </td>
+    </tr>
+  </table>
 
 </body>
 </html>
+b
