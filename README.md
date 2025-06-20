@@ -32,62 +32,38 @@
     <li><strong>Session Auth</strong>: express-session</li>
     <li><strong>Deployment</strong>: Localhost / Railway / Render</li>
   </ul>
-
-  <hr>
-
-  <h2>⚙️ Setup</h2>
-  <pre>
-# 1. Clone repo
-git clone https://github.com/your-username/blood-donation-system.git
-cd blood-donation-system
-
-# 2. Install dependencies
-npm install
-
-# 3. Add .env file
-PORT=3000
-DB_USER=your_db_user
-DB_PASSWORD=your_db_pass
-DB_HOST=localhost
-DB_NAME=blood_donation_db
-SESSION_SECRET=your_secret
-
-# 4. Start server
-npm start
-  </pre>
-
   <hr>
 
   <h2>📷 Screenshots</h2>
+
   <table>
     <tr>
       <td>
         <h4>Login Page</h4>
-        <img src="https://i.postimg.cc/yWMTZd9v/p3.png" width="300" alt="Login Page">
+        <img src="https://i.postimg.cc/yWMTZd9v/p3.png" alt="Login Page">
       </td>
       <td>
         <h4>Blood Request Form</h4>
-        <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" width="300" alt="Blood Request Form">
+        <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" alt="Blood Request Form">
       </td>
     </tr>
     <tr>
       <td>
         <h4>Profile Page</h4>
-        <img src="https://i.postimg.cc/mt7yNsyR/p5.png" width="300" alt="Profile Page">
+        <img src="https://i.postimg.cc/mt7yNsyR/p5.png" alt="Profile Page">
       </td>
       <td>
         <h4>Donor List</h4>
-        <img src="https://i.postimg.cc/v4ML0N0n/p6.png" width="300" alt="Donor List">
+        <img src="https://i.postimg.cc/v4ML0N0n/p6.png" alt="Donor List">
       </td>
     </tr>
     <tr>
       <td colspan="2" style="text-align:center;">
         <h4>Dashboard</h4>
-        <img src="https://i.postimg.cc/5H25VFdN/p7.png" width="300" alt="Dashboard">
+        <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard">
       </td>
     </tr>
   </table>
 
 </body>
 </html>
-b
