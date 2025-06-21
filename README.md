@@ -2,18 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
+  <title>Blood Donation Management System</title>
+  <style>
+    table {
+      width: 100%;
+      border-spacing: 20px;
+    }
+    td {
+      width: 50%;
+      vertical-align: top;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h4 {
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
 
   <h1>🩸 Blood Donation Management System</h1>
 
   <p>A full-stack web application to manage blood donors and requests efficiently. Built with <strong>Node.js</strong>, <strong>Express.js</strong>, <strong>EJS</strong>, and <strong>PostgreSQL</strong>.</p>
-<hr>
-<p>
-  <span>Link:</span>
-  <span><a href="https://blood-donation-management-bht9.onrender.com/"> Blood_Donation__Management </a></span>
-</p>
+  <hr>
+  <p>
+    <span>Link:</span>
+    <span><a href="https://blood-donation-management-bht9.onrender.com/">Blood_Donation__Management</a></span>
+  </p>
   <hr>
   <h2>🚀 Features</h2>
   <ul>
@@ -24,7 +45,6 @@
     <li>📊 Admin view for managing data</li>
     <li>🎨 Responsive UI with Tailwind CSS</li>
   </ul>
-
   <hr>
 
   <h2>🛠️ Tech Stack</h2>
@@ -61,7 +81,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2" style="text-align:center;">
+      <td colspan="2">
         <h4>Dashboard</h4>
         <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard">
       </td>
