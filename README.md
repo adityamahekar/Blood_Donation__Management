@@ -40,27 +40,27 @@
   <tr>
     <td style="width: 50%; vertical-align: top; text-align: center;">
       <h4 style="margin-bottom: 8px;">Login Page</h4>
-      <img src="https://i.postimg.cc/yWMTZd9v/p3.png" alt="Login Page" style="width: 600px; height: 600.00px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <img src="https://i.postimg.cc/yWMTZd9v/p3.png" alt="Login Page" style="width: 600px; height: 300.00px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </td>
     <td style="width: 50%; vertical-align: top; text-align: center;">
       <h4 style="margin-bottom: 8px;">Blood Request Form</h4>
-      <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" alt="Blood Request Form" style="width:  600px; height:  600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <img src="https://i.postimg.cc/Xr8KmkPz/p4.png" alt="Blood Request Form" style="width:  600px; height:  300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </td>
   </tr>
   <tr>
     <td style="width: 50%; vertical-align: top; text-align: center;">
       <h4 style="margin-bottom: 8px;">Profile Page</h4>
-      <img src="https://i.postimg.cc/mt7yNsyR/p5.png" alt="Profile Page" style="width: 600px; height:  600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <img src="https://i.postimg.cc/mt7yNsyR/p5.png" alt="Profile Page" style="width: 600px; height:  300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </td>
     <td style="width: 50%; vertical-align: top; text-align: center;">
       <h4 style="margin-bottom: 8px;">Donor List</h4>
-      <img src="https://i.postimg.cc/v4ML0N0n/p6.png" alt="Donor List" style="width:  600px; height: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <img src="https://i.postimg.cc/v4ML0N0n/p6.png" alt="Donor List" style="width:  600px; height: 300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </td>
   </tr>
   <tr>
     <td colspan="2" style="text-align: center;">
       <h4 style="margin-bottom: 8px;">Dashboard</h4>
-      <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard" style="width: 600px; height: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <img src="https://i.postimg.cc/5H25VFdN/p7.png" alt="Dashboard" style="width: 600px; height: 300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </td>
   </tr>
 </table>
