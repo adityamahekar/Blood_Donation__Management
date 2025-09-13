@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodCare - Donation System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #B22222;
+            --primary-gradient: linear-gradient(135deg, #B22222 0%, #C71585 50%, #872657 100%);
+            --secondary: #8E54E9;
+            --secondary-gradient: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --card-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            --red-dark: #B22222;
+            --red-medium: #C71585;
+            --red-light: #ff8a80;
+        }
+
+        body {
+            background: linear-gradient(135deg, #B22222 0%, #C71585 50%, #872657 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            color: white;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #B22222;
+        }
+
+        .logo i {
+            color: #B22222;
+            text-shadow: 0 0 10px rgba(178, 34, 34, 0.3);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 40px 5%;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(178, 34, 34, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-gradient);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.6);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 5%;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 50px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .feature-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .modal-content {
+            background: var(--card-gradient);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            color: var(--dark);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.2);
+        }
+
+        .inventory {
+            padding: 60px 5%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin: 0 5% 40px;
+        }
+
+        .inventory h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .inventory-table th, .inventory-table td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .inventory-table th {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .inventory-table tr:nth-child(even) {
+            background-color: rgba(178, 34, 34, 0.1);
+        }
+
+        .inventory-table tr:hover {
+            background-color: rgba(178, 34, 34, 0.2);
+        }
+
+        .blood-count {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .blood-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+            color: white;
+        }
+
+        .status-critical {
+            background: var(--danger);
+        }
+
+        .status-adequate {
+            background: var(--success);
+        }
+
+        .status-low {
+            background: var(--warning);
+            color: black;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 30px;
+            margin-top: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .inventory-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-tint"></i>
+            <span>BloodCare</span>
+        </div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#" id="register-btn">Register</a>
+            <a href="#" id="inventory-btn">Inventory</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Save Lives Through Blood Donation</h1>
+        <p>Join our mission to ensure safe blood supply for those in need. Your donation can save up to three lives.</p>
+        <button class="btn pulse" id="donate-btn"><i class="fas fa-heart"></i> Donate Blood</button>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Save Lives</h3>
+            <p>Your blood donation can save up to three lives and make a significant impact on someone in need.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-stethoscope"></i>
+            <h3>Health Benefits</h3>
+            <p>Donating blood can help reduce the risk of heart disease and stimulate blood cell production.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-certificate"></i>
+            <h3>Free Health Check</h3>
+            <p>Get a free basic health screening and blood test when you donate blood.</p>
+        </div>
+    </div>
+
+    <div id="donation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Become a Blood Donor</h2>
+            <form id="donation-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" required min="18" max="65" placeholder="Enter your age">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="blood-type">Blood Type</label>
+                    <select id="blood-type" required>
+                        <option value="">Select Blood Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="donor-type">I am a:</label>
+                    <select id="donor-type" required>
+                        <option value="">Select Option</option>
+                        <option value="donor">Donor (Want to donate blood)</option>
+                        <option value="patient">Patient (Need blood)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="units">Units (For donors only)</label>
+                    <input type="number" id="units" min="1" max="3" value="1" placeholder="Units of blood donating">
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="inventory-section" class="inventory">
+        <h2>Blood Inventory</h2>
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Available Units</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A+</td>
+                    <td class="blood-count" id="A-positive">15</td>
+                    <td><div class="blood-status status-adequate">Adequate</div></td>
+                    <td><button class="btn" onclick="requestBlood('A+')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>A-</td>
+                    <td class="blood-count" id="A-negative">8</td>
+                    <td><div class="blood-status status-low">Low</div></td>
+                    <td><button class="btn" onclick="requestBlood('A-')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>B+</td>
+                    <td class="blood-count" id="B-positive">22</td>
+                    <td><div class="blood-status status-adequate">Adequate</div></td>
+                    <td><button class="btn" onclick="requestBlood('B+')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>B-</td>
+                    <td class="blood-count" id="B-negative">5</td>
+                    <td><div class="blood-status status-critical">Critical</div></td>
+                    <td><button class="btn" onclick="requestBlood('B-')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>AB+</td>
+                    <td class="blood-count" id="AB-positive">12</td>
+                    <td><div class="blood-status status-adequate">Adequate</div></td>
+                    <td><button class="btn" onclick="requestBlood('AB+')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>AB-</td>
+                    <td class="blood-count" id="AB-negative">4</td>
+                    <td><div class="blood-status status-critical">Critical</div></td>
+                    <td><button class="btn" onclick="requestBlood('AB-')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>O+</td>
+                    <td class="blood-count" id="O-positive">30</td>
+                    <td><div class="blood-status status-adequate">Adequate</div></td>
+                    <td><button class="btn" onclick="requestBlood('O+')">Request</button></td>
+                </tr>
+                <tr>
+                    <td>O-</td>
+                    <td class="blood-count" id="O-negative">10</td>
+                    <td><div class="blood-status status-low">Low</div></td>
+                    <td><button class="btn" onclick="requestBlood('O-')">Request</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <button class="btn btn-secondary" id="back-to-home">Back to Home</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BloodCare. All rights reserved. | Save Lives, Donate Blood</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const donateBtn = document.getElementById('donate-btn');
+            const registerBtn = document.getElementById('register-btn');
+            const inventoryBtn = document.getElementById('inventory-btn');
+            const backToHomeBtn = document.getElementById('back-to-home');
+            const modal = document.getElementById('donation-modal');
+            const closeBtn = document.querySelector('.close');
+            const donationForm = document.getElementById('donation-form');
+            const inventorySection = document.getElementById('inventory-section');
+            
+            // Event Listeners
+            donateBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+            });
+            
+            registerBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+            });
+            
+            inventoryBtn.addEventListener('click', function() {
+                inventorySection.style.display = 'block';
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.features').style.display = 'none';
+            });
+            
+            backToHomeBtn.addEventListener('click', function() {
+                inventorySection.style.display = 'none';
+                document.querySelector('.hero').style.display = 'block';
+                document.querySelector('.features').style.display = 'grid';
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            donationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+                const phone = document.getElementById('phone').value;
+                const bloodType = document.getElementById('blood-type').value;
+                const donorType = document.getElementById('donor-type').value;
+                const units = document.getElementById('units').value;
+                
+                // Validate form
+                if (!name || !age || !phone || !bloodType || !donorType) {
+                    alert('Please fill all required fields!');
+                    return;
+                }
+                
+                // Update inventory based on donor/patient
+                if (donorType === 'donor') {
+                    // Increment blood count for donation
+                    const bloodElement = document.getElementById(bloodType.replace('+', '-positive').replace('-', '-negative'));
+                    let currentCount = parseInt(bloodElement.textContent);
+                    bloodElement.textContent = currentCount + parseInt(units);
+                    
+                    // Update status
+                    updateBloodStatus(bloodElement, currentCount + parseInt(units));
+                    
+                    alert(`Thank you ${name} for donating ${units} unit(s) of ${bloodType} blood!`);
+                } else {
+                    // Decrement blood count for patient
+                    const bloodElement = document.getElementById(bloodType.replace('+', '-positive').replace('-', '-negative'));
+                    let currentCount = parseInt(bloodElement.textContent);
+                    
+                    if (currentCount <= 0) {
+                        alert(`Sorry, we currently don't have enough ${bloodType} blood in stock.`);
+                        return;
+                    }
+                    
+                    bloodElement.textContent = currentCount - 1;
+                    
+                    // Update status
+                    updateBloodStatus(bloodElement, currentCount - 1);
+                    
+                    alert(`We've processed your request for ${bloodType} blood. Our team will contact you at ${phone}.`);
+                }
+                
+                // Reset form and close modal
+                donationForm.reset();
+                modal.style.display = 'none';
+            });
+            
+            // Function to update blood status based on count
+            function updateBloodStatus(element, count) {
+                const statusElement = element.parentElement.nextElementSibling.querySelector('.blood-status');
+                
+                if (count <= 5) {
+                    statusElement.textContent = 'Critical';
+                    statusElement.className = 'blood-status status-critical';
+                } else if (count <= 10) {
+                    statusElement.textContent = 'Low';
+                    statusElement.className = 'blood-status status-low';
+                } else {
+                    statusElement.textContent = 'Adequate';
+                    statusElement.className = 'blood-status status-adequate';
+                }
+            }
+            
+            // Add animations to elements on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.feature-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Function to handle blood requests from the table
+        function requestBlood(bloodType) {
+            const bloodElement = document.getElementById(bloodType.replace('+', '-positive').replace('-', '-negative'));
+            let currentCount = parseInt(bloodElement.textContent);
+            
+            if (currentCount <= 0) {
+                alert(`Sorry, we currently don't have enough ${bloodType} blood in stock.`);
+                return;
+            }
+            
+            bloodElement.textContent = currentCount - 1;
+            
+            // Update status
+            const statusElement = bloodElement.parentElement.nextElementSibling.querySelector('.blood-status');
+            
+            if (currentCount - 1 <= 5) {
+                statusElement.textContent = 'Critical';
+                statusElement.className = 'blood-status status-critical';
+            } else if (currentCount - 1 <= 10) {
+                statusElement.textContent = 'Low';
+                statusElement.className = 'blood-status status-low';
+            } else {
+                statusElement.textContent = 'Adequate';
+                statusElement.className = 'blood-status status-adequate';
+            }
+            
+            alert(`Your request for ${bloodType} blood has been received. Our team will contact you shortly.`);
+        }
+    </script>
+</body>
+</html>
