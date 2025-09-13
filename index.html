@@ -289,12 +289,13 @@
 
         .inventory {
             padding: 60px 5%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             display: none;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             margin: 0 5% 40px;
+            color: #000; /* Changed text color to black */
         }
 
         .inventory h2 {
@@ -302,7 +303,7 @@
             font-size: 2.5rem;
             margin-bottom: 40px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            color: white;
+            color: #000; /* Changed text color to black */
         }
 
         .inventory-table {
@@ -318,6 +319,7 @@
         .inventory-table th, .inventory-table td {
             padding: 15px;
             text-align: center;
+            color: #000; /* Changed text color to black */
         }
 
         .inventory-table th {
@@ -339,6 +341,7 @@
         .blood-count {
             font-weight: bold;
             font-size: 1.2rem;
+            color: #000; /* Changed text color to black */
         }
 
         .blood-status {
@@ -360,6 +363,59 @@
         .status-low {
             background: var(--warning);
             color: black;
+        }
+
+        /* New styles for donor and patient sections */
+        .details-section {
+            padding: 60px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin: 0 5% 40px;
+            color: #000; /* Text color black */
+        }
+
+        .details-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #000; /* Text color black */
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-table th, .details-table td {
+            padding: 15px;
+            text-align: center;
+            color: #000; /* Text color black */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .details-table th {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .details-table tr:nth-child(even) {
+            background-color: rgba(178, 34, 34, 0.1);
+        }
+
+        .details-table tr:hover {
+            background-color: rgba(178, 34, 34, 0.2);
         }
 
         footer {
@@ -397,7 +453,7 @@
                 justify-content: center;
             }
             
-            .inventory-table {
+            .inventory-table, .details-table {
                 display: block;
                 overflow-x: auto;
             }
@@ -414,6 +470,8 @@
             <a href="#" class="active">Home</a>
             <a href="#" id="register-btn">Register</a>
             <a href="#" id="inventory-btn">Inventory</a>
+            <a href="#" id="donors-btn">Donors</a>
+            <a href="#" id="patients-btn">Patients</a>
         </nav>
     </header>
 
@@ -552,7 +610,53 @@
             </tbody>
         </table>
         <div style="text-align: center;">
-            <button class="btn btn-secondary" id="back-to-home">Back to Home</button>
+            <button class="btn btn-secondary back-btn">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Donor Details Section -->
+    <div id="donor-section" class="details-section">
+        <h2>Donor Details</h2>
+        <table class="details-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Blood Type</th>
+                    <th>Units Donated</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="donor-list">
+                <!-- Donor data will be inserted here -->
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <button class="btn btn-secondary back-btn">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Patient Details Section -->
+    <div id="patient-section" class="details-section">
+        <h2>Patient Details</h2>
+        <table class="details-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Blood Type</th>
+                    <th>Units Received</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="patient-list">
+                <!-- Patient data will be inserted here -->
+            </tbody>
+        </table>
+        <div style="text-align: center;">
+            <button class="btn btn-secondary back-btn">Back to Home</button>
         </div>
     </div>
 
@@ -561,16 +665,24 @@
     </footer>
 
     <script>
+        // Arrays to store donor and patient data
+        let donors = [];
+        let patients = [];
+
         document.addEventListener('DOMContentLoaded', function() {
             // DOM Elements
             const donateBtn = document.getElementById('donate-btn');
             const registerBtn = document.getElementById('register-btn');
             const inventoryBtn = document.getElementById('inventory-btn');
-            const backToHomeBtn = document.getElementById('back-to-home');
+            const donorsBtn = document.getElementById('donors-btn');
+            const patientsBtn = document.getElementById('patients-btn');
+            const backToHomeBtns = document.querySelectorAll('.back-btn');
             const modal = document.getElementById('donation-modal');
             const closeBtn = document.querySelector('.close');
             const donationForm = document.getElementById('donation-form');
             const inventorySection = document.getElementById('inventory-section');
+            const donorSection = document.getElementById('donor-section');
+            const patientSection = document.getElementById('patient-section');
             
             // Event Listeners
             donateBtn.addEventListener('click', function() {
@@ -582,15 +694,25 @@
             });
             
             inventoryBtn.addEventListener('click', function() {
-                inventorySection.style.display = 'block';
-                document.querySelector('.hero').style.display = 'none';
-                document.querySelector('.features').style.display = 'none';
+                showSection(inventorySection);
             });
             
-            backToHomeBtn.addEventListener('click', function() {
-                inventorySection.style.display = 'none';
-                document.querySelector('.hero').style.display = 'block';
-                document.querySelector('.features').style.display = 'grid';
+            donorsBtn.addEventListener('click', function() {
+                showSection(donorSection);
+                updateDonorTable();
+            });
+            
+            patientsBtn.addEventListener('click', function() {
+                showSection(patientSection);
+                updatePatientTable();
+            });
+            
+            backToHomeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    hideAllSections();
+                    document.querySelector('.hero').style.display = 'block';
+                    document.querySelector('.features').style.display = 'grid';
+                });
             });
             
             closeBtn.addEventListener('click', function() {
@@ -620,8 +742,21 @@
                     return;
                 }
                 
+                // Create record object
+                const record = {
+                    name,
+                    age,
+                    phone,
+                    bloodType,
+                    units: parseInt(units),
+                    date: new Date().toLocaleDateString()
+                };
+                
                 // Update inventory based on donor/patient
                 if (donorType === 'donor') {
+                    // Add to donors array
+                    donors.push(record);
+                    
                     // Increment blood count for donation
                     const bloodElement = document.getElementById(bloodType.replace('+', '-positive').replace('-', '-negative'));
                     let currentCount = parseInt(bloodElement.textContent);
@@ -632,6 +767,9 @@
                     
                     alert(`Thank you ${name} for donating ${units} unit(s) of ${bloodType} blood!`);
                 } else {
+                    // Add to patients array
+                    patients.push(record);
+                    
                     // Decrement blood count for patient
                     const bloodElement = document.getElementById(bloodType.replace('+', '-positive').replace('-', '-negative'));
                     let currentCount = parseInt(bloodElement.textContent);
@@ -668,6 +806,59 @@
                     statusElement.textContent = 'Adequate';
                     statusElement.className = 'blood-status status-adequate';
                 }
+            }
+            
+            // Function to show a specific section
+            function showSection(section) {
+                hideAllSections();
+                section.style.display = 'block';
+                document.querySelector('.hero').style.display = 'none';
+                document.querySelector('.features').style.display = 'none';
+            }
+            
+            // Function to hide all sections
+            function hideAllSections() {
+                inventorySection.style.display = 'none';
+                donorSection.style.display = 'none';
+                patientSection.style.display = 'none';
+            }
+            
+            // Function to update donor table
+            function updateDonorTable() {
+                const donorList = document.getElementById('donor-list');
+                donorList.innerHTML = '';
+                
+                donors.forEach(donor => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${donor.name}</td>
+                        <td>${donor.age}</td>
+                        <td>${donor.phone}</td>
+                        <td>${donor.bloodType}</td>
+                        <td>${donor.units}</td>
+                        <td>${donor.date}</td>
+                    `;
+                    donorList.appendChild(row);
+                });
+            }
+            
+            // Function to update patient table
+            function updatePatientTable() {
+                const patientList = document.getElementById('patient-list');
+                patientList.innerHTML = '';
+                
+                patients.forEach(patient => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${patient.name}</td>
+                        <td>${patient.age}</td>
+                        <td>${patient.phone}</td>
+                        <td>${patient.bloodType}</td>
+                        <td>${patient.units}</td>
+                        <td>${patient.date}</td>
+                    `;
+                    patientList.appendChild(row);
+                });
             }
             
             // Add animations to elements on scroll
