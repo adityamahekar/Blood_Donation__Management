@@ -31,20 +31,18 @@ Built with **Node.js**, **Express.js**, **EJS**, and **PostgreSQL**.
 
 ## 📷 Screenshots  
 
-| Login Page | Blood Request Form |
+| Home Page | Blood Request Form |
 |------------|--------------------|
-| ![Login Page](bb1.png) | ![Blood Request Form](bb2.png) |
+| ![Home Page](bb1.png) | ![Blood Request Form](bb2.png) |
 
-| Profile Page | Donor List |
+| Patient List | Donor List |
 |--------------|------------|
-| ![Profile Page](https://i.postimg.cc/mt7yNsyR/p5.png) | ![Donor List](https://i.postimg.cc/v4ML0N0n/p6.png) |
+| ![Patient List](bb5.png) | ![Donor List](bb4.png) |
 
-### Dashboard
-![Dashboard](https://i.postimg.cc/5H25VFdN/p7.png)
-
+| Inventory Page |
+|--------------|
+| ![Inventory List](bb3.png) |
 ---
 
-## 📌 How to Run Locally
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/adityamahekar/Blood_Donation__Management.git
+
+
