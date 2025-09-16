@@ -17,7 +17,7 @@ The Blood Donation Management System is a full-stack web application designed to
 
 ---
 
-## 📷 Screenshots  
+## 📷 Gallery 
 
 | Home Page | Blood Request Form |
 |------------|--------------------|
@@ -31,6 +31,7 @@ The Blood Donation Management System is a full-stack web application designed to
 |--------------|
 | ![Inventory List](bb3.png) |
 ---
+
 
 
 
