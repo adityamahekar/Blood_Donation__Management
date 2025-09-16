@@ -3,7 +3,7 @@
 
 The Blood Donation Management System is a web application developed to streamline and digitalize the blood donation process. The system enables donors to register, update, and manage their profiles, while recipients can request and track blood availability with ease.
 
-Administrators have access to manage donor data, monitor blood requests, and ensure a smooth operation across the platform. The system is designed to improve communication, speed up the donation process, and make the overall blood management more efficient and accessible.
+
 ---
 
 ## 🌐 Live Demo  
@@ -34,6 +34,7 @@ Administrators have access to manage donor data, monitor blood requests, and ens
 |--------------|
 | ![Inventory List](bb3.png) |
 ---
+
 
 
 
